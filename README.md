@@ -9,6 +9,8 @@ I wrote it purely to have fun (besides meeting class assignment requirements obv
 
 [Software Demo Video] https://youtu.be/n99DXBCCuhk 
 
+GitHub Repository- https://github.com/mftb2/Interactive-Storyteller
+
 # Development Environment
 
 I used VS code to write my program, which can be opened in a browser.
