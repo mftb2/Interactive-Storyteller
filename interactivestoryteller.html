@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Own Adventure</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .error {
+            color: red;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Choose Your Own Adventure</h1>
+        <p id="story">You're a high school senior, torn between attending Brigham Young University-Idaho (BYUI) or starting your own business. What will you choose?</p>
+        <button onclick="choosePath(1)">Go to BYUI</button>
+        <button onclick="choosePath(2)">Start a business</button>
+        <p id="error" class="error"></p>
+    </div>
+
+    <script>
+        // Function to handle the player's choice
+        function choosePath(choice) {
+            try {
+                // Validate the player's choice
+                if (choice !== 1 && choice !== 2) {
+                    throw "Invalid choice! Please choose option 1 or 2.";
+                }
+                // Get story and error elements
+                var storyElement = document.getElementById('story');
+                var errorElement = document.getElementById('error');
+                // Clear previous error message
+                errorElement.textContent = '';
+                // Display story based on the player's choice
+                if (choice === 1) {
+                    // Present additional choices based on going to BYUI
+                    storyElement.textContent = "You decide to enroll at BYUI and pursue a degree in business management. What will you do next?";
+                    // Add more buttons for additional choices
+                    var additionalChoicesHTML = `
+                        <button onclick="attendClasses()">Attend classes</button>
+                        <button onclick="exploreCampus()">Explore the campus</button>
+                    `;
+                    storyElement.insertAdjacentHTML('beforeend', additionalChoicesHTML);
+                } else if (choice === 2) {
+                    // Present additional choices based on starting a business
+                    storyElement.textContent = "You decide to start your own business. What will you do next?";
+                    // Add more buttons for additional choices
+                    var additionalChoicesHTML = `
+                        <button onclick="researchMarket()">Research the market</button>
+                        <button onclick="developProduct()">Develop a product/service</button>
+                    `;
+                    storyElement.insertAdjacentHTML('beforeend', additionalChoicesHTML);
+                }
+            } catch (error) {
+                // Handle any exceptions and display error message
+                var errorElement = document.getElementById('error');
+                errorElement.textContent = error;
+            }
+        }
+
+        // Functions for additional choices based on going to BYUI
+        function attendClasses() {
+            var storyElement = document.getElementById('story');
+            storyElement.textContent = "You attend your first day of classes and meet new friends. What will you do next?";
+            // Add more buttons for additional choices
+            var additionalChoicesHTML = `
+                <button onclick="studyHard()">Study hard for exams</button>
+                <button onclick="joinClub()">Join a student club</button>
+            `;
+            storyElement.insertAdjacentHTML('beforeend', additionalChoicesHTML);
+        }
+
+        function exploreCampus() {
+            var storyElement = document.getElementById('story');
+            storyElement.textContent = "You explore the beautiful campus of BYUI and discover exciting opportunities. What will you do next?";
+            // Add more buttons for additional choices
+            var additionalChoicesHTML = `
+                <button onclick="attendEvent()">Attend a campus event</button>
+                <button onclick="visitLibrary()">Visit the library</button>
+            `;
+            storyElement.insertAdjacentHTML('beforeend', additionalChoicesHTML);
+        }
+
+        // Functions for additional choices based on starting a business
+        function researchMarket() {
+            var storyElement = document.getElementById('story');
+            storyElement.textContent = "You conduct thorough market research to identify potential customers and competitors. What will you do next?";
+            // Add more buttons for additional choices
+            var additionalChoicesHTML = `
+                <button onclick="createBusinessPlan()">Create a business plan</button>
+                <button onclick="network()">Network with industry professionals</button>
+            `;
+            storyElement.insertAdjacentHTML('beforeend', additionalChoicesHTML);
+        }
+
+        function developProduct() {
+            var storyElement = document.getElementById('story');
+            storyElement.textContent = "You work hard to develop a unique product/service that solves a problem in the market. What will you do next?";
+            // Add more buttons for additional choices
+            var additionalChoicesHTML = `
+                <button onclick="testPrototype()">Test the prototype</button>
+                <button onclick="marketProduct()">Start marketing the product/service</button>
+            `;
+            storyElement.insertAdjacentHTML('beforeend', additionalChoicesHTML);
+        }
+
+        // Functions for additional choices based on attending classes at BYUI
+        function studyHard() {
+            var storyElement = document.getElementById('story');
+            storyElement.textContent = "You dedicate yourself to studying hard for exams and achieving academic success.";
+        }
+
+        function joinClub() {
+            var storyElement = document.getElementById('story');
+            storyElement.textContent = "You decide to join a student club to meet new people and explore your interests.";
+        }
+
+        // Functions for additional choices based on exploring the campus of BYUI
+        function attendEvent() {
+            var storyElement = document.getElementById('story');
+            storyElement.textContent = "You attend a campus event and have a great time socializing with other students.";
+        }
+
+        function visitLibrary() {
+            var storyElement = document.getElementById('story');
+            storyElement.textContent = "You spend time in the library, studying and researching topics that interest you.";
+        }
+
+        // Functions for additional choices based on starting a business
+        function createBusinessPlan() {
+            var storyElement = document.getElementById('story');
+            storyElement.textContent = "You develop a comprehensive business plan outlining your goals and strategies.";
+        }
+
+        function network() {
+            var storyElement = document.getElementById('story');
+            storyElement.textContent = "You actively network with industry professionals to gain insights and connections.";
+        }
+
+        // Functions for additional choices based on developing a product/service
+        function testPrototype() {
+            var storyElement = document.getElementById('story');
+            storyElement.textContent = "You test the prototype of your product/service to gather feedback and make improvements.";
+        }
+
+        function marketProduct() {
+            var storyElement = document.getElementById('story');
+            storyElement.textContent = "You launch a marketing campaign to promote your product/service and attract customers.";
+        }
+    </script>
+</body>
+</html>
